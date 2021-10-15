@@ -46,7 +46,6 @@
                     transform:rotatez(359deg);
                 }
             }
-            @
         </style>
 
 
@@ -70,23 +69,26 @@
                      //object.member.member.member
                     //alert(1);
                     b('fan').style.animationPlayState='paused';
+                    a('[onclick="clickMe(0)"]').style.backgroundPosition='0px 0px';
                     
                 }else if(speed == 1){
                    // alert(2);
                    a('#fan').style.animationPlayState='running';
                    a('.k_fan').style.animationDuration='1.4s';
                    //texting 
-                   a('[onclick="clickMe(0)"]').style.display ='none';
+                   a('[onclick="clickMe(0)"]').style.backgroundPosition='0px -52px';
 
                 }else if(speed == 2){
                    // alert(3);
                    a('[data-fan1="myfan"]').style.animationPlayState='running';
                    a('[data-fan1="myfan"]').style.animationDuration='0.9s';
+                   a('[onclick="clickMe(0)"]').style.backgroundPosition='0px -52px';
 
                 }else{
                    // alert(4);
                    b('fan').style.animationPlayState='running';
                    b('fan').style.animationDuration='0.1s';
+                   a('[onclick="clickMe(0)"]').style.backgroundPosition='0px -52px';
                 }
             } 
         </script>
