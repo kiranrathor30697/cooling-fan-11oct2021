@@ -7,69 +7,98 @@
         <title>Cooling Fan</title>
         <style>
             body{
+                
                 background-color: #f7f7f7;
                 margin:0px;
                 text-align: center;
                 font-family: Arial, Helvetica, sans-serif;
             }
+            
             .k_fan{
+                width: 300px;
+                height: 300px;
+                background-image: url(img/1.png);
                 margin:50px auto;
                 background-size: cover;
                 background-repeat: no-repeat;
-                margin-left: 100px;
-                animation-name:bouncing;
-                animation-duration:0.5s;
+                animation-name:fan;
+                animation-duration:0.1s;
                 animation-timing-function:linear;
                 animation-iteration-count: infinite;
+                animation-play-state:paused;
             }
-            .btn{
-                width: 20px;
-                height: 20px;
-               
+            .buttongroup > button:first-child{
+                width: 100px;
+                padding: 30px 15px;
+                background-image: url(img/3.png);
+                background-repeat: no-repeat;
+                background-size: 100px 110px;
+                border: none;
+                background-position: 0px 0px;
+                margin:auto !important;
+                
             }
-            @keyframes bouncing{
+            @keyframes fan {
                 0%{
-                    transform:rotateZ(0deg)
-                }
-                25%{
-                    transform:rotateZ(90deg)
-                }
-                50%{
-                    transform: rotateZ(180deg);
-                }
-                75%{
-                    transform: rotateZ(270);
+                    transform:rotatez(0deg);
                 }
                 100%{
-                    transform: rotateZ(360deg);
+                    transform:rotatez(359deg);
                 }
             }
+            @
         </style>
 
 
         <script>
-             function clickMe(state){//formal argument
+            //1.function definition
+            function a(elem){//formal argument
+                //function body
+                return document.querySelector(elem);
+            }
+             //2.function definition
+             function b(eleme){//formal argument
+                //function body
+                return document.getElementById(eleme);
+            }
+
+            //3.function definition
+             function clickMe(speed){//formal argument
                 //function body
                 //alert('ok');
-                if(state == 'stop'){
-                    //true
+                if(speed == 0){
                      //object.member.member.member
-                     document.body.tranform.rotateZ('0deg');
+                    //alert(1);
+                    b('fan').style.animationPlayState='paused';
+                    
+                }else if(speed == 1){
+                   // alert(2);
+                   a('#fan').style.animationPlayState='running';
+                   a('.k_fan').style.animationDuration='1.4s';
+                   //texting 
+                   a('[onclick="clickMe(0)"]').style.display ='none';
+
+                }else if(speed == 2){
+                   // alert(3);
+                   a('[data-fan1="myfan"]').style.animationPlayState='running';
+                   a('[data-fan1="myfan"]').style.animationDuration='0.9s';
+
                 }else{
-                    //false
-                   
+                   // alert(4);
+                   b('fan').style.animationPlayState='running';
+                   b('fan').style.animationDuration='0.1s';
                 }
+            } 
         </script>
     </head>
     <body>
         <h1>Cooling Fan</h1>
-        <div >
-            <img class="k_fan" style="width: 300px;" src="img/1.jpg">
-            <button onclick="clickMe('stop')">Stop</button>
-            <button onclick="clickMe('low')">1</button>
-            <button onclick="clickMe('medium')">2</button>
-            <button onclick="clickMe('fast')">3</button>
-         
+        <div class="k_fan" id="fan" data-fan1="myfan"></div>
+        <div class="buttongroup">
+            <button onclick="clickMe(0)"></button>
+            <button onclick="clickMe(1)">1</button>
+            <button onclick="clickMe(2)">2</button>
+            <button onclick="clickMe(3)">3</button>
         </div>
             
         <script>
